@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>低暮的宝箱</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #eef5fb; /* 浅蓝色背景 */
+            color: #333;
+        }
+        h1 {
+            text-align: center;
+            color: #007BFF; /* 深蓝色标题 */
+        }
+        table {
+            border-collapse: collapse;
+            width: 80%;
+            margin: 2rem auto;
+            background-color: #fff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 添加阴影效果 */
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #007BFF; /* 深蓝色表头背景 */
+            color: #fff;
+        }
+        tr:hover {
+            background-color: #f5f8fa; /* 鼠标悬停时的浅灰色背景 */
+        }
+        a {
+            color: #007BFF; /* 蓝色链接 */
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<h1>低暮的宝箱</h1>
+
+<table id="file-links-table">
+    <thead>
+    <tr>
+        <th>文件名称</th>
+        <th>分享链接</th>
+        <th>提取码</th>
+        <th>有效期</th>
+    </tr>
+    </thead>
+    <tbody></tbody>
+</table>
+
+<script>
+    // 假设这是从服务器获取的数据
+    const fileLinksData = [
+        { name: "森久城物语", link: "https://pan.quark.cn/s/265a4", code: "", period: "永久" },
+        { name: "破门而入", link: "https://pan.quark.cn/s/2667b", code: "", period: "永久" },
+        { name: "王国保卫战", link: "https://pan.quark.cn/s/ca43a", code: "", period: "永久" },
+        { name: "TOHU", link: "https://pan.quark.cn/s/b14ad", code: "", period: "永久" },
+    ];
+
+    // 获取表格元素
+    const tableBody = document.querySelector("#file-links-table tbody");
+
+    // 遍历数据并将每一项添加到表格中
+    for (const fileLink of fileLinksData) {
+        const newRow = document.createElement("tr");
+        newRow.innerHTML = `
+            <td>${fileLink.name}</td>
+            <td><a href="${fileLink.link}" target="_blank">${fileLink.link}</a></td>
+            <td>${fileLink.code}</td>
+            <td>${fileLink.period}</td>
+        `;
+        tableBody.appendChild(newRow);
+    }
+
+</script>
+
+</body>
+</html>
